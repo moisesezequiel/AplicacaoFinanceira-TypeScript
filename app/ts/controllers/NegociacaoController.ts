@@ -3,6 +3,8 @@ class NegociacaoController{
     private _inputData :HTMLInputElement;
     private _inputQuantidade : HTMLInputElement;
     private _inputValor :HTMLInputElement;
+    private _negociacoes = new Negociacoes();
+    private _negociacoesView = new NegociacoesView('#tableNeg');
 
     constructor(){
         //pega os campos declarados via Id no html (DOM)
@@ -10,6 +12,7 @@ class NegociacaoController{
         this._inputData =<HTMLInputElement>document.querySelector('#data');
         this._inputQuantidade =<HTMLInputElement>document.querySelector('#quantidade');
         this._inputValor =<HTMLInputElement>document.querySelector('#valor');
+        this._negociacoesView.update(this._negociacoes);
     }
    //Tipando os eventos que manipulam o DOM com o tipo Event 
     adiciona(event : Event){
@@ -21,6 +24,8 @@ class NegociacaoController{
             parseInt(this._inputQuantidade.value), //parse de HTMLInputElement para int
             parseFloat(this._inputValor.value)//parse de HTMLInputElement para float
         );
-        console.log(negociacao)
+        this._negociacoes.adiciona(negociacao)
+        this._negociacoesView.update(this._negociacoes); //ebviando as negociacoes para o view e montar na tabela 
+        // console.log(negociacao)
     }
 }
