@@ -1,5 +1,4 @@
 class Negociacao {
-    //colocando os atributos diretamente no construtor e definindo o tipo  
     constructor(_data, _quantidade, _valor) {
         this._data = _data;
         this._quantidade = _quantidade;

@@ -2,7 +2,6 @@ class NegociacoesView extends View {
     update(model) {
         this._elemento.innerHTML = this.template(model);
     }
-    // app/ts/views/NegociacoesView.ts
     template(model) {
         return `
         <table class="table table-hover table-bordered">
@@ -30,5 +29,5 @@ class NegociacoesView extends View {
             </tfoot>
         </table>               
         `;
-    } //join vazio para concatenar todas strings e sumir uma virgula 
+    }
 }
