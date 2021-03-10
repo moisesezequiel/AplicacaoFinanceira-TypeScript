@@ -8,7 +8,7 @@ class NegociacaoController{
     private _mensagemView = new MensagemView('#mensagemView')
 
     constructor(){
-        //pega os campos declarados via Id no html (DOM)
+     //pega os campos declarados via Id no html (DOM)
     //<HTMLInputElement> Faz um casting de um elemento mais generico para um  elemento mais especifico  
         this._inputData =<HTMLInputElement>document.querySelector('#data');
         this._inputQuantidade =<HTMLInputElement>document.querySelector('#quantidade');

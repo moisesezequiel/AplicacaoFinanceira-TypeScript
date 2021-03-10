@@ -1,10 +1,6 @@
-class NegociacoesView{
+class NegociacoesView extends View {
 
-    private _elemento:Element;
-
-    constructor(seletor:string){//selecionando o id que está la no html
-        this._elemento = document.querySelector(seletor)
-    }
+   
 
     update(model : Negociacoes):void{ //metodo para adicionar o table visualmente
         this._elemento.innerHTML = this.template(model);
