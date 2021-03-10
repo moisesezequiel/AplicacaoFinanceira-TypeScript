@@ -1,4 +1,5 @@
-class View <T>{
+abstract class View <T>{
+    //definindo classe abstrata para definir que nao poderá ser criado uma instancia
     protected _elemento:Element;
 
     constructor(seletor:string){//selecionando o id que está la no html
@@ -9,7 +10,5 @@ class View <T>{
         this._elemento.innerHTML = this.template(model);
     }
 
-    template(model:T) : string {
-    throw new Error("Voce deve implementar o metodo Template")
-    }
+   abstract template(model:T) : string;//metodo abstrato para ser implementado nas classes filhas 
 }
