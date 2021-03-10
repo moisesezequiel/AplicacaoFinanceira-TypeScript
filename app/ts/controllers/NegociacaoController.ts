@@ -5,6 +5,7 @@ class NegociacaoController{
     private _inputValor :HTMLInputElement;
     private _negociacoes = new Negociacoes();
     private _negociacoesView = new NegociacoesView('#tableNeg');
+    private _mensagemView = new MensagemView('#mensagemView')
 
     constructor(){
         //pega os campos declarados via Id no html (DOM)
@@ -27,5 +28,6 @@ class NegociacaoController{
         this._negociacoes.adiciona(negociacao)
         this._negociacoesView.update(this._negociacoes); //ebviando as negociacoes para o view e montar na tabela 
         // console.log(negociacao)
+        this._mensagemView.update('negociacao adicionada com sucesso')
     }
 }

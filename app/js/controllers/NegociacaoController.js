@@ -2,6 +2,7 @@ class NegociacaoController {
     constructor() {
         this._negociacoes = new Negociacoes();
         this._negociacoesView = new NegociacoesView('#tableNeg');
+        this._mensagemView = new MensagemView('#mensagemView');
         //pega os campos declarados via Id no html (DOM)
         //<HTMLInputElement> Faz um casting de um elemento mais generico para um  elemento mais especifico  
         this._inputData = document.querySelector('#data');
@@ -20,5 +21,6 @@ class NegociacaoController {
         this._negociacoes.adiciona(negociacao);
         this._negociacoesView.update(this._negociacoes); //ebviando as negociacoes para o view e montar na tabela 
         // console.log(negociacao)
+        this._mensagemView.update('negociacao adicionada com sucesso');
     }
 }
