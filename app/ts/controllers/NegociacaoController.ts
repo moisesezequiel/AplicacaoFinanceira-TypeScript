@@ -4,8 +4,8 @@ class NegociacaoController{
     private _inputQuantidade : JQuery;
     private _inputValor :JQuery;
     private _negociacoes = new Negociacoes();
-    private _negociacoesView = new NegociacoesView('#tableNeg');
-    private _mensagemView = new MensagemView('#mensagemView')
+    private _negociacoesView = new Views.NegociacoesView('#tabela');
+    private _mensagemView = new Views.MensagemView('#mensagemView')
 
     constructor(){
      //pega os campos declarados via Id no html (DOM)
@@ -15,11 +15,11 @@ class NegociacaoController{
         this._inputValor =$('#valor');
         this._negociacoesView.update(this._negociacoes);
     }
-   //Tipando os eventos que manipulam o DOM com o tipo Event 
+                                                     //Tipando os eventos que manipulam o DOM com o tipo Event 
     adiciona(event : Event){
-        //Executa as requisicoes e nao carrega a pagina 
+                                                       //Executa as requisicoes e nao carrega a pagina 
         event.preventDefault();
-
+debugger
         const negociacao = new Negociacao(
            new Date(this._inputData.val().replace(/-/g,',')), //retira o ifem e subistitui por virgula
             parseInt(this._inputQuantidade.val()), //parse de HTMLInputElement para int
