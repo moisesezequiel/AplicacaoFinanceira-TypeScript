@@ -8,6 +8,6 @@ export class Negociacoes{
     paraArray() :Negociacao[]{
         //define o tipo do array e apresenta a lista de negociacoes
 
-       return [].concat(this._negociacoes);
+       return ([] as Negociacao[]).concat(this._negociacoes);
     }
 }

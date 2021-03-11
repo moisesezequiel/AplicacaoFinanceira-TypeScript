@@ -4,8 +4,9 @@
         protected _elemento: JQuery; 
         private _escape : boolean ;     
                                 //? paramertro opocional 
-        constructor(seletor: string, _escape?:boolean) {
+        constructor(seletor: string, escape:boolean= false) {
             this._elemento = $(seletor);//seletor Jquery
+            this._escape = escape;
         }
 
 
