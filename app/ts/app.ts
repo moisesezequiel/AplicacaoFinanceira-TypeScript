@@ -1,3 +1,3 @@
-import {NegociacaoController} from "../ts/controllers/NegociacaoController"
+import {NegociacaoController} from "./controllers/NegociacaoController"
 const controller = new NegociacaoController ();
 $('.form').submit(controller.adiciona.bind(controller));

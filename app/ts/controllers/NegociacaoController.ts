@@ -1,7 +1,5 @@
-import {NegociacoesView} from '../views/NegociacoesView'
-import {MensagemView} from '../views/MensagemView'
-import {Negociacoes} from '../models/Negociacoes'
-import {Negociacao}  from '../models/Negociacao'
+import {NegociacoesView,MensagemView} from '../views/index';
+import {Negociacoes,Negociacao} from '../models/index'
 export class NegociacaoController{
    //Tipando as variaveis que manipulam o DOM com o tipo //HTMLInputElement
     private _inputData :JQuery;

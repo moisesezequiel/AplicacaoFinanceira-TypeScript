@@ -1,4 +1,4 @@
-System.register(["../ts/controllers/NegociacaoController"], function (exports_1, context_1) {
+System.register(["./controllers/NegociacaoController"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var NegociacaoController_1, controller;
