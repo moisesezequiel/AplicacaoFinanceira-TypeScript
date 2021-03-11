@@ -1,4 +1,4 @@
-class Negociacao{
+export class Negociacao{
   //colocando os atributos diretamente no construtor e definindo o tipo  
     constructor(private _data: Date, private _quantidade :number,private _valor: number){
     }

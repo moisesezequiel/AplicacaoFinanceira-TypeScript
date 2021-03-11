@@ -1,5 +1,7 @@
-namespace Views{
-   export class NegociacoesView extends Views.View <Negociacoes>{
+   import {View } from './View'
+   import {Negociacoes} from '../models/Negociacoes'
+   
+  export class NegociacoesView extends View <Negociacoes>{
     
         template(model : Negociacoes): string { // parametro esperando as negociacoes sendo enviadas 
     
@@ -34,5 +36,3 @@ namespace Views{
             `
         } //join vazio para concatenar todas strings e sumir uma virgula 
     }
-
-}

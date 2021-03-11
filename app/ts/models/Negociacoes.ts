@@ -1,4 +1,5 @@
-class Negociacoes{
+import {Negociacao} from './Negociacao'
+export class Negociacoes{
     private _negociacoes:Negociacao[] =[]; //usando uma classes para gerenciar o array usando na nossa app
 
     adiciona(negociacao : Negociacao){

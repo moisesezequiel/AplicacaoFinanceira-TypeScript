@@ -1,6 +1,5 @@
 
-namespace Views { //criando um modutlo
-   export abstract class View<T>{ //necessario exportar para aparecer nas outras classes
+  export abstract class View<T>{ //necessario exportar para aparecer nas outras classes
         //definindo classe abstrata para definir que nao poderá ser criado uma instancia
         protected _elemento: JQuery; //mudando de Element para Any para caber dentro do metodo update
 
@@ -14,4 +13,3 @@ namespace Views { //criando um modutlo
 
         abstract template(model: T): string;//metodo abstrato para ser implementado nas classes filhas 
     }
-}
