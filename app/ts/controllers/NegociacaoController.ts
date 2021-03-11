@@ -6,7 +6,7 @@ export class NegociacaoController{
     private _inputQuantidade : JQuery;
     private _inputValor :JQuery;
     private _negociacoes = new Negociacoes();
-    private _negociacoesView = new NegociacoesView('#tabela');
+    private _negociacoesView = new NegociacoesView('#tabela',false);
     private _mensagemView = new MensagemView('#mensagemView')
 
     constructor(){
