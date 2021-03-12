@@ -1,4 +1,4 @@
-
+import {tempoDeExecucao} from "../helpers/decorators/Index"
   export abstract class View<T>{
         
         protected _elemento: JQuery; 
@@ -10,7 +10,7 @@
         }
 
 
-        
+        @tempoDeExecucao()
         update(model: T) {
             this._elemento.html(this.template(model));
             let template = this.template(model);

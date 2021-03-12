@@ -1,5 +1,6 @@
 import {NegociacoesView,MensagemView} from '../views/index';
 import {Negociacoes,Negociacao} from '../models/index'
+import {tempoDeExecucao} from "../helpers/decorators/Index"
 export class NegociacaoController{
     private _inputData :JQuery;
     private _inputQuantidade : JQuery;
@@ -16,7 +17,10 @@ export class NegociacaoController{
         this._inputValor =$('#valor');
         this._negociacoesView.update(this._negociacoes);
     }
-                                                     //Tipando os eventos que manipulam o DOM com o tipo Event 
+                  
+    //Tipando os eventos que manipulam o DOM com o tipo Event 
+
+    @tempoDeExecucao(false)
     adiciona(event : Event){
 
         event.preventDefault();
