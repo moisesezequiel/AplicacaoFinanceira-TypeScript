@@ -7,7 +7,7 @@ System.register(["../views/index", "../models/index", "../helpers/decorators/Ind
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var index_1, index_2, Index_1, NegociacaoController, Dias;
+    var index_1, index_2, Index_1, Index_2, NegociacaoController, Dias;
     return {
         setters: [
             function (index_1_1) {
@@ -18,6 +18,7 @@ System.register(["../views/index", "../models/index", "../helpers/decorators/Ind
             },
             function (Index_1_1) {
                 Index_1 = Index_1_1;
+                Index_2 = Index_1_1;
             }
         ],
         execute: function () {
@@ -26,9 +27,6 @@ System.register(["../views/index", "../models/index", "../helpers/decorators/Ind
                     this._negociacoes = new index_2.Negociacoes();
                     this._negociacoesView = new index_1.NegociacoesView('#tabela', false);
                     this._mensagemView = new index_1.MensagemView('#mensagemView');
-                    this._inputData = $('#data');
-                    this._inputQuantidade = $('#quantidade');
-                    this._inputValor = $('#valor');
                     this._negociacoesView.update(this._negociacoes);
                 }
                 adiciona(event) {
@@ -49,6 +47,15 @@ System.register(["../views/index", "../models/index", "../helpers/decorators/Ind
                     return data.getDay() != Dias.sabado && data.getDay() != Dias.domingo;
                 }
             };
+            __decorate([
+                Index_2.donInject('#data')
+            ], NegociacaoController.prototype, "_inputData", void 0);
+            __decorate([
+                Index_2.donInject('#quantidade')
+            ], NegociacaoController.prototype, "_inputQuantidade", void 0);
+            __decorate([
+                Index_2.donInject('#valor')
+            ], NegociacaoController.prototype, "_inputValor", void 0);
             __decorate([
                 Index_1.tempoDeExecucao(false)
             ], NegociacaoController.prototype, "adiciona", null);

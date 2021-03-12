@@ -1,20 +1,22 @@
 import {NegociacoesView,MensagemView} from '../views/index';
 import {Negociacoes,Negociacao} from '../models/index'
 import {tempoDeExecucao} from "../helpers/decorators/Index"
+import {donInject} from "../helpers/decorators/Index"
 export class NegociacaoController{
+
+    @donInject('#data')
     private _inputData :JQuery;
+
+    @donInject('#quantidade')
     private _inputQuantidade : JQuery;
+
+    @donInject('#valor')
     private _inputValor :JQuery;
     private _negociacoes = new Negociacoes();
     private _negociacoesView = new NegociacoesView('#tabela',false);
     private _mensagemView = new MensagemView('#mensagemView')
 
     constructor(){
-     //pega os campos declarados via Id no html (DOM)
-    //<HTMLInputElement> Faz um casting de um elemento mais generico para um  elemento mais especifico  
-        this._inputData =$('#data');
-        this._inputQuantidade =$('#quantidade');
-        this._inputValor =$('#valor');
         this._negociacoesView.update(this._negociacoes);
     }
                   
