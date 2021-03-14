@@ -1,7 +1,8 @@
 import {NegociacoesView,MensagemView} from '../views/index';
 import {Negociacoes,Negociacao} from '../models/index'
-import {tempoDeExecucao} from "../helpers/decorators/Index"
+import {tempoDeExecucao , throttle } from "../helpers/decorators/Index"
 import {donInject} from "../helpers/decorators/Index"
+import { NegociacaoParcial } from '../models/NegociacaoParcial';
 export class NegociacaoController{
 
     @donInject('#data')
@@ -22,10 +23,8 @@ export class NegociacaoController{
                   
     //Tipando os eventos que manipulam o DOM com o tipo Event 
 
-    @tempoDeExecucao(false)
-    adiciona(event : Event){
-
-        event.preventDefault();
+    @throttle()
+    adiciona(){
         let data = new Date(this._inputData.val().replace(/-/g,','))//retira o ifem e subistitui por virgula
         debugger
         if(!this._ehDiaUtil(data)) {
@@ -50,6 +49,7 @@ export class NegociacaoController{
         return data.getDay()!=Dias.sabado && data.getDay()!=Dias.domingo;
 
     }
+    @throttle()
     importarDados() {
 
         function isOK(res: Response) {
@@ -63,7 +63,7 @@ export class NegociacaoController{
         fetch('http://localhost:8080/dados')
             .then(res => isOK(res))
             .then(res => res.json())
-            .then((dados: any[]) => {
+            .then((dados: NegociacaoParcial[]) => {
                 dados
                     .map(dado => new Negociacao(new Date(), dado.vezes, dado.montante))
                     .forEach(negociacao => this._negociacoes.adiciona(negociacao));
