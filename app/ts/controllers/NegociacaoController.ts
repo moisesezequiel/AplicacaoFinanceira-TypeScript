@@ -50,6 +50,9 @@ export class NegociacaoController{
         return data.getDay()!=Dias.sabado && data.getDay()!=Dias.domingo;
 
     }
+    importaDados(){
+        alert("oi")
+    }
 }
 
 enum Dias{
