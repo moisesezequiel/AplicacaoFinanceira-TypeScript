@@ -54,14 +54,23 @@ export class NegociacaoController{
 
     }
     @throttle()
-    importarDados() {
 
-        this._service
-        .obterNegociacoes(res => {
-            if(res.ok) return res;
-            throw new Error(res.statusText);
-        })
-        .then(negociacoesParaImportar => {
+    @throttle()
+    async importarDados() {
+
+        try {
+
+           // usou await antes da chamada de this.service.obterNegociacoes()
+
+            const negociacoesParaImportar = await this._service
+                .obterNegociacoes(res => {
+
+                    if(res.ok) {
+                        return res;
+                    } else {
+                        throw new Error(res.statusText);
+                    }
+                });
 
             const negociacoesJaImportadas = this._negociacoes.paraArray();
 
@@ -73,11 +82,12 @@ export class NegociacaoController{
                 this._negociacoes.adiciona(negociacao));
 
             this._negociacoesView.update(this._negociacoes);
-        })
-        .catch(err =>{
+
+        } catch(err) {
             this._mensagemView.update(err.message);
-        })
+        }
     }
+
 }
 
 enum Dias{
