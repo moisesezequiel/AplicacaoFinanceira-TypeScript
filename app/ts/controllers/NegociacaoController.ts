@@ -4,6 +4,7 @@ import {tempoDeExecucao , throttle } from "../helpers/decorators/Index"
 import {donInject} from "../helpers/decorators/Index"
 import { NegociacaoParcial } from '../models/NegociacaoParcial';
 import { NegociacaoService ,ResponseHandler } from '../services/îndex';
+import { imprime} from '../helpers/index';
 export class NegociacaoController{
 
     @donInject('#data')
@@ -33,7 +34,6 @@ export class NegociacaoController{
             this._mensagemView.update('Somente Possivel fazer negociacoes em dias da semana ')
             return
         }
-        console.log(data.getDay())
 
         const negociacao = new Negociacao(
 
@@ -41,7 +41,9 @@ export class NegociacaoController{
             parseInt(this._inputQuantidade.val()), //parse de HTMLInputElement para int
             parseFloat(this._inputValor.val()), //parse de HTMLInputElement para float
         );
+        
         this._negociacoes.adiciona(negociacao)
+        imprime(negociacao, this._negociacoes);
         this._negociacoesView.update(this._negociacoes); //ebviando as negociacoes para o view e montar na tabela 
         // console.log(negociacao)
         this._mensagemView.update('negociacao adicionada com sucesso')
