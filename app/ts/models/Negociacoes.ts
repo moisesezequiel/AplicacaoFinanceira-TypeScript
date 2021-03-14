@@ -1,6 +1,9 @@
 import {Imprimivel} from './Imprimivel'
 import {Negociacao} from './Negociacao'
-export class Negociacoes implements Imprimivel{
+import {Igualavel} from './Igualavel'
+
+
+export class Negociacoes implements Imprimivel, Igualavel<Negociacoes>{
     private _negociacoes:Negociacao[] =[]; //usando uma classes para gerenciar o array usando na nossa app
 
     adiciona(negociacao : Negociacao){
@@ -15,5 +18,8 @@ export class Negociacoes implements Imprimivel{
 
         console.log('-- paraTexto --');
         console.log(JSON.stringify(this._negociacoes));
+    }
+    ehIgual(negociacoes: Negociacoes):boolean{
+        return JSON.stringify(this._negociacoes) == JSON.stringify(negociacoes);
     }
 }
