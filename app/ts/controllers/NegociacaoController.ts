@@ -3,7 +3,7 @@ import {Negociacoes,Negociacao} from '../models/index'
 import {tempoDeExecucao , throttle } from "../helpers/decorators/Index"
 import {donInject} from "../helpers/decorators/Index"
 import { NegociacaoParcial } from '../models/NegociacaoParcial';
-import { NegociacaoService } from '../services/îndex';
+import { NegociacaoService ,ResponseHandler } from '../services/îndex';
 export class NegociacaoController{
 
     @donInject('#data')
@@ -54,22 +54,16 @@ export class NegociacaoController{
     @throttle()
     importarDados() {
 
-        function isOK(res: Response) {
-
-            if(res.ok) {
-                return res;
-            } else {
-                throw new Error(res.statusText);
-            }
-           
-        }
         this._service
-        .obterNegociacoes(isOK)
+        .obterNegociacoes(res => {
+            if(res.ok) return res;
+            throw new Error(res.statusText);
+        })
         .then(negociacoes => {
             negociacoes.forEach(negociacao => 
                 this._negociacoes.adiciona(negociacao));
             this._negociacoesView.update(this._negociacoes);
-        });  
+        });
     }
 }
 
