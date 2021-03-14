@@ -1,5 +1,6 @@
+import {Imprimivel} from './Imprimivel'
 import {Negociacao} from './Negociacao'
-export class Negociacoes{
+export class Negociacoes extends Imprimivel{
     private _negociacoes:Negociacao[] =[]; //usando uma classes para gerenciar o array usando na nossa app
 
     adiciona(negociacao : Negociacao){

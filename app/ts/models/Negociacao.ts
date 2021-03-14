@@ -1,7 +1,11 @@
-export class Negociacao{
+import {Imprimivel} from './Imprimivel';
+export class Negociacao extends Imprimivel {
   //colocando os atributos diretamente no construtor e definindo o tipo  
-    constructor(readonly data: Date, readonly quantidade :number,readonly valor: number){//subistituindo private para readonly se for só pra usar o metodo get
-    }
+   
+  constructor(readonly data: Date, readonly quantidade :number,readonly valor: number){//subistituindo private para readonly se for só pra usar o metodo get
+
+    super();
+  }
 
     get volume() {
         return this.quantidade* this.valor;
