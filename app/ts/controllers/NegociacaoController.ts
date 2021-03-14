@@ -73,7 +73,10 @@ export class NegociacaoController{
                 this._negociacoes.adiciona(negociacao));
 
             this._negociacoesView.update(this._negociacoes);
-        });
+        })
+        .catch(err =>{
+            this._mensagemView.update(err.message);
+        })
     }
 }
 
