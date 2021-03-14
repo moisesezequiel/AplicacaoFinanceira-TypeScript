@@ -1,6 +1,5 @@
-import {Imprimivel} from './Imprimivel';
-import {Igualavel} from './Igualavel';
-export class Negociacao implements Imprimivel , Igualavel<Negociacao> {
+import {InterfaceMae} from './index';
+export class Negociacao implements InterfaceMae<Negociacao> {
   //colocando os atributos diretamente no construtor e definindo o tipo  
    
   constructor(readonly data: Date, readonly quantidade :number,readonly valor: number){//subistituindo private para readonly se for só pra usar o metodo get

@@ -1,9 +1,8 @@
-import {Imprimivel} from './Imprimivel'
+import {InterfaceMae} from './index'
 import {Negociacao} from './Negociacao'
-import {Igualavel} from './Igualavel'
 
 
-export class Negociacoes implements Imprimivel, Igualavel<Negociacoes>{
+export class Negociacoes implements InterfaceMae <Negociacoes>{
     private _negociacoes:Negociacao[] =[]; //usando uma classes para gerenciar o array usando na nossa app
 
     adiciona(negociacao : Negociacao){
